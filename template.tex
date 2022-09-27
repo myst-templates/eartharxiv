@@ -1,4 +1,8 @@
+[# if options.two_column #]
+\documentclass[twocolumn]{article}
+[# else #]
 \documentclass{article}
+[# endif #]
 \usepackage{eartharxiv}
 
 %% Math packages
@@ -41,6 +45,7 @@
 	\end{tikzpicture}
 	\hspace{-2mm}
 }
+
 %%%%%%%%%%%%%%%%   Title   %%%%%%%%%%%%%%%%
 \title{[-doc.title-]}
 
@@ -78,6 +83,9 @@
 %%%%%%%%%%%%%%    Front matter    %%%%%%%%%%%%%%
 \begin{document}
 
+[# if options.two_column #]
+\twocolumn[\begin{@twocolumnfalse}
+[# endif #]
 \maketitle
 
 [# if parts.abstract #]
@@ -90,7 +98,13 @@
 \keywords{[-doc.keywords|join(", ")-]}
 [# endif #]
 
+[# if options.two_column #]
+\vspace{0.5cm}
+
+\end{@twocolumnfalse}]
+[# else #]
 \vspace{0.35cm}
+[# endif #]
 
 %%%%%%%%%%%%%%%  Main text   %%%%%%%%%%%%%%%
 [# if options.line_numbers #]\linenumbers[# endif #]

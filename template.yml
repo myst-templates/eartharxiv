@@ -31,9 +31,10 @@ doc:
     required: true
   - id: bibliography
 options:
+  - id: two_column
+    type: boolean
   - id: line_numbers
     type: boolean
-    default: true
   - id: link
     type: string
     description: >
@@ -50,7 +51,9 @@ packages:
   - fancyhdr
   - fontenc
   - geometry
+  - inputenc
   - lineno
+  - natbib
   - newfloat
   - scalerel
   - sidecap
